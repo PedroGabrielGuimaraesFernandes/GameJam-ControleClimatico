@@ -9,4 +9,13 @@ public class LevelManager : MonoBehaviour
     {
         SceneManager.LoadScene(scene);
     }
+
+    public void QuitGame()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.ExitPlaymode();
+#else
+        Application.Quit();
+#endif
+    }
 }

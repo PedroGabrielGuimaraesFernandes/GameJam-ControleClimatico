@@ -12,7 +12,11 @@ public static class GameData
 
     public static void LoadData()
     {
-
+        //if (PlayerPrefs.HasKey("score"))
+        //{
+        //    totalScore = PlayerPrefs.GetInt("score");
+        //    //scoreText.text = "x " + score.ToString();
+        //}
     }
 
 }
