@@ -17,7 +17,7 @@ public class ElevatorPlataform : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            collision.transform.SetParent(transform);
+            //collision.transform.SetParent(transform);
         }
     }
 

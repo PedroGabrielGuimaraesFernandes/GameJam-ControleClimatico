@@ -12,10 +12,9 @@ public class GameController : MonoBehaviour
     public int score;
     public Text scoreText;
 
-    public GameObject pauseObj;
-    public GameObject gameOverObj;
+    
 
-    public int totalScore;
+    //public int totalScore;
 
     public bool isSunny = true;
     public bool isRainy = false;
@@ -27,34 +26,56 @@ public class GameController : MonoBehaviour
     void Awake()
     {
         instance = this;
-        if (PlayerPrefs.HasKey("score")) {
-            totalScore = PlayerPrefs.GetInt("score");
-            //scoreText.text = "x " + score.ToString();
-        }
+       
     }
 
     private void Start()
     {
-        //Debug.Log(PlayerPrefs.GetInt("score"));
+        if (isSunny)
+        {
+            UIController.instance.sunnyAnim.SetInteger("Trasition", 0);
+            UIController.instance.rainyAnim.SetInteger("Trasition", 1);
+        }
+        else if (isRainy)
+        {
+            UIController.instance.sunnyAnim.SetInteger("Trasition", 1);
+            UIController.instance.rainyAnim.SetInteger("Trasition", 0);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
         PauseGame();
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+        CheckWeather();
+        }
     }
 
-    public void UpdateScore(int value)
+    void CheckWeather()
     {
-        score += value;
-        scoreText.text = "x " + score.ToString();
+        if (isSunny)
+        {
+            isSunny = false;
+            isRainy = true;
+            UIController.instance.sunnyAnim.SetInteger("Trasition", 1);
+            UIController.instance.rainyAnim.SetInteger("Trasition", 0);
 
-        PlayerPrefs.SetInt("score", score + totalScore);
+        }
+        else if (isRainy)
+        {
+            isRainy = false;
+            isSunny = true;
+            UIController.instance.sunnyAnim.SetInteger("Trasition", 0);
+            UIController.instance.rainyAnim.SetInteger("Trasition", 1);
+        }
+
     }
 
     public void UpdateLives(int value)
     {
-        healthText.text = "x " + value.ToString();
+        UIController.instance.WriteLives(value);
     }
 
     public void PauseGame()
@@ -64,24 +85,33 @@ public class GameController : MonoBehaviour
             if (!isPaused)
             {
                 isPaused = true;
-                pauseObj.SetActive(true);
+                UIController.instance.pauseObj.SetActive(true);
                 Time.timeScale = 0;
             }
             else if (isPaused)
             {
                 isPaused = false;
-                pauseObj.SetActive(false);
+                UIController.instance.pauseObj.SetActive(false);
                 Time.timeScale = 1;
             }
         }
     }
 
-    public void GameOver()
+    public void ContinueGame()
     {
-        gameOverObj.SetActive(true);
+        isPaused = false;
+        UIController.instance.pauseObj.SetActive(false);
+        Time.timeScale = 1;
     }
 
-    public void RestartGame() {
+    public void GameOver()
+    {
+        Time.timeScale = 0;
+        UIController.instance.gameOverObj.SetActive(true);
+    }
+
+    public void RestartLevel() {
+        Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

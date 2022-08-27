@@ -16,12 +16,21 @@ public class Player : MonoBehaviour
     private bool doubleJump;
     private bool isFiring;
     private Rigidbody2D rig;
+
+    private Vector3 lastGroundedPosition = Vector3.zero;
+    private Quaternion lastGroundedRotate = Quaternion.identity;
+    private Checkpoint lastCheckpoint;
+
+    public Checkpoint LastCheckpoint { get => lastCheckpoint; set => lastCheckpoint = value; }
+    public Vector3 LastGroundedPosition { get => lastGroundedPosition; set => lastGroundedPosition = value; }
+
     //private Animator anim;
 
     // Start is called before the first frame update
     void Start()
     {
         health = 3;
+        LastGroundedPosition = transform.position;
         //GameController.instance.UpdateLives(health);
         rig = GetComponent<Rigidbody2D>();
         //anim = GetComponent<Animator>();
@@ -113,16 +122,17 @@ public class Player : MonoBehaviour
         GameController.instance.UpdateLives(health);
         //anim.SetTrigger("Hit");
 
-        if (transform.rotation.y == 0)
-        {
-            //rig.AddForce(Vector2.left * 5, ForceMode2D.Impulse);
-            transform.position += new Vector3(-1f, 0, 0);
-        }
-        else if (transform.rotation.y == 180)
-        {
-            //rig.AddForce(Vector2.right * 5, ForceMode2D.Impulse);
-            transform.position += new Vector3(1f, 0, 0);
-        }
+        //inserir aqui a parte que ´checa se a colisão foi com um obstaculo ou ñ para dar o respawn       
+        //if (transform.rotation.y == 0)
+        //{
+        //    //rig.AddForce(Vector2.left * 5, ForceMode2D.Impulse);
+        //    transform.position += new Vector3(-1f, 0, 0);
+        //}
+        //else if (transform.rotation.y == 180)
+        //{
+        //    //rig.AddForce(Vector2.right * 5, ForceMode2D.Impulse);
+        //    transform.position += new Vector3(1f, 0, 0);
+        //}
 
         if (health <= 0)
         {
@@ -137,16 +147,44 @@ public class Player : MonoBehaviour
         GameController.instance.UpdateLives(health);
     }
 
+    private void PlayerRespawn(Vector3 respawnPosition)
+    {
+        transform.position = respawnPosition;
+        transform.rotation = lastGroundedRotate;
+
+    }
+
+    //private void PlayerRespawn(Vector3 respawnPosition)
+    //{
+    //    transform.position = respawnPosition;
+    //    transform.rotation = lastGroundedRotate;
+
+    //    if (transform.rotation.y == 0)
+    //    {
+    //        //rig.AddForce(Vector2.left * 5, ForceMode2D.Impulse);
+    //        transform.position += new Vector3(-1f, 0, 0);
+    //    }
+    //    else if (transform.rotation.y == 180)
+    //    {
+    //        //rig.AddForce(Vector2.right * 5, ForceMode2D.Impulse);
+    //        transform.position += new Vector3(1f, 0, 0);
+    //    }
+    //}
+
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if(other.gameObject.layer == 6)
+        if(other.gameObject.layer == 6 || other.gameObject.layer == 7)
         {
             isJumping = false;
         }
 
-        if (other.gameObject.layer == 7)
+        if (other.gameObject.layer == 8)
         {
-            GameController.instance.GameOver();
+            Damage(1);
+            PlayerRespawn(LastGroundedPosition);
+            //GameController.instance.GameOver();
         }
     }
+
+    
 }
