@@ -24,7 +24,7 @@ public class Player : MonoBehaviour
     public Checkpoint LastCheckpoint { get => lastCheckpoint; set => lastCheckpoint = value; }
     public Vector3 LastGroundedPosition { get => lastGroundedPosition; set => lastGroundedPosition = value; }
 
-    //private Animator anim;
+    private Animator anim;
 
     // Start is called before the first frame update
     void Start()
@@ -33,7 +33,7 @@ public class Player : MonoBehaviour
         LastGroundedPosition = transform.position;
         //GameController.instance.UpdateLives(health);
         rig = GetComponent<Rigidbody2D>();
-        //anim = GetComponent<Animator>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -58,7 +58,7 @@ public class Player : MonoBehaviour
         if(movement > 0)
         {
             if(!isJumping)
-                //anim.SetInteger("Transition", 1);
+                anim.SetInteger("Transition", 1);
 
             transform.eulerAngles = new Vector3(0, 0, 0);
         }
@@ -67,14 +67,14 @@ public class Player : MonoBehaviour
         if(movement < 0)
         {
             if (!isJumping)
-                //anim.SetInteger("Transition", 1);
+                anim.SetInteger("Transition", 1);
 
             transform.eulerAngles = new Vector3(0, 180, 0);
         }
 
         if(movement == 0 && !isJumping && !isFiring)
         {
-            //anim.SetInteger("Transition", 0);
+            anim.SetInteger("Transition", 0);
         }
     }
 
@@ -84,14 +84,14 @@ public class Player : MonoBehaviour
         {
             if (!isJumping)
             {
-                //anim.SetInteger("Transition", 2);
+                anim.SetInteger("Transition", 2);
                 rig.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
                 isJumping = true;
                 doubleJump = true;
             }
             else if(doubleJump)
             {
-                //anim.SetInteger("Transition", 2);
+                anim.SetInteger("Transition", 2);
                 rig.AddForce(new Vector2(0, jumpForce * 1), ForceMode2D.Impulse);                
                 doubleJump = false;
             }
@@ -120,7 +120,7 @@ public class Player : MonoBehaviour
     {
         health -= dmg;
         GameController.instance.UpdateLives(health);
-        //anim.SetTrigger("Hit");
+        anim.SetTrigger("Damage");
 
         //inserir aqui a parte que ´checa se a colisão foi com um obstaculo ou ñ para dar o respawn       
         //if (transform.rotation.y == 0)

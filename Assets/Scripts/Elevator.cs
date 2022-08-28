@@ -44,7 +44,8 @@ public class Elevator : MonoBehaviour
             else
             {
                 plataform.transform.position = Vector2.MoveTowards(plataform.transform.position, waypoints[plataform.CurrentWaypoint].position, speed * Time.deltaTime);
-                plataform.transform.localRotation = Quaternion.RotateTowards(plataform.transform.localRotation, waypoints[plataform.CurrentWaypoint].localRotation, rotationSpeed * Time.deltaTime) ;
+                //plataform.transform.localRotation = Quaternion.RotateTowards(plataform.transform.localRotation, waypoints[plataform.CurrentWaypoint].localRotation, rotationSpeed * Time.deltaTime) ;
+                plataform.transform.localRotation =  waypoints[plataform.CurrentWaypoint].localRotation;
             }
         }
         
