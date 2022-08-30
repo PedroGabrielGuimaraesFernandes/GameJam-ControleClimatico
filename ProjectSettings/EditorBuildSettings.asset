@@ -9,6 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 3884f9a9fa69b17448ea808d2949204b
   - enabled: 1
+    path: Assets/Scenes/Tutorial.unity
+    guid: b1b63feaec1a37e48ad47a442740c0c2
+  - enabled: 1
     path: Assets/Scenes/Level1.unity
     guid: d80914e76726ca245ad0d3fc372e5205
+  - enabled: 1
+    path: Assets/Scenes/Tela Final.unity
+    guid: ba58dcbfcb9d16e46a794d5b9d317990
   m_configObjects: {}

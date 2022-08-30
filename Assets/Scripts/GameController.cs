@@ -18,6 +18,7 @@ public class GameController : MonoBehaviour
 
     public bool isSunny = true;
     public bool isRainy = false;
+    public bool canChange = true;
 
     public static GameController instance;
     private bool isPaused;
@@ -35,11 +36,13 @@ public class GameController : MonoBehaviour
         {
             UIController.instance.sunnyAnim.SetInteger("Trasition", 0);
             UIController.instance.rainyAnim.SetInteger("Trasition", 1);
+            UIController.instance.weatherEffectsAnim.SetInteger("Transition", 0);
         }
         else if (isRainy)
         {
             UIController.instance.sunnyAnim.SetInteger("Trasition", 1);
             UIController.instance.rainyAnim.SetInteger("Trasition", 0);
+            UIController.instance.weatherEffectsAnim.SetInteger("Transition", 1);
         }
     }
 
@@ -47,8 +50,9 @@ public class GameController : MonoBehaviour
     void Update()
     {
         PauseGame();
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && canChange)
         {
+            canChange = false;
         CheckWeather();
         }
     }
@@ -61,6 +65,7 @@ public class GameController : MonoBehaviour
             isRainy = true;
             UIController.instance.sunnyAnim.SetInteger("Trasition", 1);
             UIController.instance.rainyAnim.SetInteger("Trasition", 0);
+            UIController.instance.weatherEffectsAnim.SetInteger("Transition", 1);
 
         }
         else if (isRainy)
@@ -69,6 +74,7 @@ public class GameController : MonoBehaviour
             isSunny = true;
             UIController.instance.sunnyAnim.SetInteger("Trasition", 0);
             UIController.instance.rainyAnim.SetInteger("Trasition", 1);
+            UIController.instance.weatherEffectsAnim.SetInteger("Transition", 0);
         }
 
     }
@@ -80,7 +86,7 @@ public class GameController : MonoBehaviour
 
     public void PauseGame()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Escape))
         {
             if (!isPaused)
             {

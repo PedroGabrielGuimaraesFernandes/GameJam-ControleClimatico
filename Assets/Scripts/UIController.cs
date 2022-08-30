@@ -14,6 +14,7 @@ public class UIController : MonoBehaviour
 
     public Animator sunnyAnim;
     public Animator rainyAnim;
+    public Animator weatherEffectsAnim;
 
     public static UIController instance;
 
