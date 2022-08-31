@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 40c1950718b82f94a97b0ec9d60f3241, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ea17fa1a4504f604398d4b65917555a7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -160,7 +160,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: a5b030e952f067347983504d4c51757f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ca5bf68f2d51a52458cd3a605624a26b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -189,8 +189,8 @@ MonoBehaviour:
   unitValue: 2.5
   ponta: {fileID: 6719894603196000759}
   growToThRight: 1
-  worksOnSun: 0
-  worksOnRain: 1
+  worksOnSun: 1
+  worksOnRain: 0
 --- !u!61 &5200988070159782100
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -206,7 +206,7 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
-    border: {x: 0.028571429, y: 0.014285714, z: 0.014285714, w: 0.021428572}
+    border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0.5}
     oldSize: {x: 1, y: 1}
     newSize: {x: 0, y: 1}
@@ -248,7 +248,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5200988072181403001}
   m_Layer: 7
-  m_Name: StretchyPlataform
+  m_Name: StretchyPlataform(Sun)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -346,7 +346,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 39b6934198c7c564787658e933f9e81e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ed0ec2f7cdb285044aaa87893a67bf08, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -374,7 +374,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.36026937, y: 0.41750842}
+    oldSize: {x: 0.38047138, y: 0.45791245}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

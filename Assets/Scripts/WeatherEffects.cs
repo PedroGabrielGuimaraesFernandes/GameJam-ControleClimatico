@@ -22,5 +22,9 @@ public class WeatherEffects : MonoBehaviour
     public void WeatherChanged()
     {
         GameController.instance.canChange = true;
+        if (GameController.instance.isRainy)
+        {
+            GameController.instance.rainParticles.SetActive(true);
+        }
     }
 }

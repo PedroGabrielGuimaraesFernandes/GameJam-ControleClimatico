@@ -7,18 +7,17 @@ using UnityEngine.UI;
 public class GameController : MonoBehaviour
 {
 
-    public Text healthText;
 
     public int score;
-    public Text scoreText;
-
-    
-
     //public int totalScore;
+
 
     public bool isSunny = true;
     public bool isRainy = false;
     public bool canChange = true;
+    public GameObject rainParticles;
+    public AudioSource sunnyAudio;
+    public AudioSource rainAudio;
 
     public static GameController instance;
     private bool isPaused;
@@ -37,12 +36,17 @@ public class GameController : MonoBehaviour
             UIController.instance.sunnyAnim.SetInteger("Trasition", 0);
             UIController.instance.rainyAnim.SetInteger("Trasition", 1);
             UIController.instance.weatherEffectsAnim.SetInteger("Transition", 0);
+            sunnyAudio.Play();
+            rainAudio.Stop();
         }
         else if (isRainy)
         {
             UIController.instance.sunnyAnim.SetInteger("Trasition", 1);
             UIController.instance.rainyAnim.SetInteger("Trasition", 0);
             UIController.instance.weatherEffectsAnim.SetInteger("Transition", 1);
+            rainParticles.SetActive(true);
+            sunnyAudio.Stop();
+            rainAudio.Play();
         }
     }
 
@@ -66,15 +70,21 @@ public class GameController : MonoBehaviour
             UIController.instance.sunnyAnim.SetInteger("Trasition", 1);
             UIController.instance.rainyAnim.SetInteger("Trasition", 0);
             UIController.instance.weatherEffectsAnim.SetInteger("Transition", 1);
+            sunnyAudio.Stop();
+            rainAudio.Play();
 
         }
         else if (isRainy)
         {
+
             isRainy = false;
             isSunny = true;
+            rainParticles.SetActive(false);
             UIController.instance.sunnyAnim.SetInteger("Trasition", 0);
             UIController.instance.rainyAnim.SetInteger("Trasition", 1);
             UIController.instance.weatherEffectsAnim.SetInteger("Transition", 0);
+            sunnyAudio.Play();
+            rainAudio.Stop();
         }
 
     }
