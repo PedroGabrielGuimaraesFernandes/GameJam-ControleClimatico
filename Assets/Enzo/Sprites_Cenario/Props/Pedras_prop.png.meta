@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ca5bf68f2d51a52458cd3a605624a26b
+guid: a17693a12fdafd44d93ca575853985c7
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -42,13 +42,13 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
-  alignment: 4
-  spritePivot: {x: 0, y: 0.5}
-  spritePixelsToUnits: 140
-  spriteBorder: {x: 4, y: 0, z: 3, w: 0}
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -114,18 +114,129 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Pedras_prop_0
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 339
+        width: 423
+        height: 207
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5916de96e87ee8149ad898a61742f41c
+      internalID: 1710128515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pedras_prop_1
+      rect:
+        serializedVersion: 2
+        x: 446
+        y: 543
+        width: 439
+        height: 198
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bb457518038c044bb6f6aae924307c7
+      internalID: -1886613341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pedras_prop_2
+      rect:
+        serializedVersion: 2
+        x: 983
+        y: 538
+        width: 515
+        height: 304
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2cfbe777ddda204a87bdf5807d0ee88
+      internalID: 269733969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pedras_prop_3
+      rect:
+        serializedVersion: 2
+        x: 1518
+        y: 363
+        width: 340
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 785f5ed97964d2b4f8083483e6db24ca
+      internalID: 433474137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pedras_prop_5
+      rect:
+        serializedVersion: 2
+        x: 673
+        y: 282
+        width: 393
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db74163bfbef02640b488f19eb531114
+      internalID: 223849208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Pedras_prop_0: 1710128515
+      Pedras_prop_2: 269733969
+      Pedras_prop_1: -1886613341
+      Pedras_prop_4: 1435019507
+      Pedras_prop_5: 223849208
+      Pedras_prop_3: 433474137
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
